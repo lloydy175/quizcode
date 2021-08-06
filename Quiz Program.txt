@@ -1,0 +1,61 @@
+##Create a three question quiz
+##Each question is equal to 1 point
+##3 points is a perfect score
+##2 points is a pass
+##1 point is a fail
+##Tell the user the score 
+##write the questions, user answers and correct/incorrect to file
+##print the file into the program
+
+score = int(0)
+
+answer1 = "blue"
+answer2 = "lungs"
+answer3 = "the sun"
+
+
+question1 = "What colour is the sky? " 
+print("What colour is the sky? ") 
+input_answer1 = input().lower()
+if input_answer1 == answer1:
+    score = score + 1
+else:
+    score = score
+
+question2 = "What do you use to breathe? "
+print("What do you use to breathe? ")
+input_answer2 = input().lower()
+if input_answer2 == answer2:
+    score = score + 1
+else:
+    score = score
+
+question3 = "What does the Earth revolve around? "
+print("What does the Earth revolve around? ")
+input_answer3 = input().lower()
+if input_answer3 == answer3:
+    score = score + 1
+else:
+    score = score
+
+if score == 3:
+    print("Congratulations, you got a perfect score! " + str(score) + "/3")    
+elif score == 2: 
+    print("Nice work! You scored " + str(score) + "/3")
+elif score <= 1:
+    print("Uh oh! Looks like you failed. Better luck next time. " + str(score) + "/3")
+
+with open("Quiz Results.txt", 'w') as file:
+    file.write("Q: " + str(question1) + "\nYour Answer: " + str(input_answer1) + "\nCorrect Answer: " + str(answer1) + "\nQ: " + str(question2) + "\nYour Answer: " + str(input_answer2) + "\nCorrect Answer: " + str(answer2) + "\nQ: " + str(question3) + "\nYour Answer: " + str(input_answer3) + "\nCorrect Answer: " + str(answer3) + "\nTotal Score: " + str(score) + "/3")
+
+with open("Quiz Results.txt", 'r') as file:
+    content = file.read()
+
+print(content)
+
+input("Your results have been exported to a .txt file. Press any key to close")
+
+
+
+
+
